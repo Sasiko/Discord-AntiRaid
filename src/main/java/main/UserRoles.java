@@ -71,6 +71,7 @@ public class UserRoles {
     try {
       JSONObject obj = new JSONObject(Files.lines(Paths.get(path), StandardCharsets.UTF_8).collect(Collectors.joining("\n")));
       obj.remove(userId);
+      FileUtils.fileWrite(path, obj.toString());
     } catch (Exception ex) {
       ex.printStackTrace();
     }
